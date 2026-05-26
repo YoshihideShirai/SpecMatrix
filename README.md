@@ -4,4 +4,7 @@ SpecMatrix is a specification-driven test validation system for embedded softwar
 
 It focuses on managing whether a test design is sufficient, not only storing test cases.
 
-See [docs/specification.md](docs/specification.md) for the initial product specification draft.
+Documents:
+
+- [Product specification draft](docs/specification.md)
+- [Architecture decision draft](docs/architecture.md)

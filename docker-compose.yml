@@ -2,7 +2,7 @@ services:
   web:
     build:
       context: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: uv run python manage.py runserver 0.0.0.0:8000
     environment:
       DJANGO_DEBUG: ${DJANGO_DEBUG:-1}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-change-me}
@@ -26,7 +26,7 @@ services:
   worker:
     build:
       context: .
-    command: celery -A config worker --loglevel=info
+    command: uv run celery -A config worker --loglevel=info
     environment:
       DJANGO_DEBUG: ${DJANGO_DEBUG:-1}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-change-me}
@@ -48,7 +48,7 @@ services:
   beat:
     build:
       context: .
-    command: celery -A config beat --loglevel=info
+    command: uv run celery -A config beat --loglevel=info
     environment:
       DJANGO_DEBUG: ${DJANGO_DEBUG:-1}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-change-me}

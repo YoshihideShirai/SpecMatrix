@@ -1,0 +1,37 @@
+[project]
+name = "specmatrix"
+version = "0.1.0"
+description = "Specification-driven test validation and release quality monitoring system."
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "Django>=5.2,<5.3",
+    "djangorestframework>=3.16,<3.17",
+    "celery>=5.5,<6.0",
+    "redis>=5.2,<6.0",
+    "psycopg[binary]>=3.2,<4.0",
+    "python-dotenv>=1.0,<2.0",
+    "PyYAML>=6.0,<7.0",
+    "gunicorn>=23.0,<24.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11,<1.0",
+    "pytest>=8.3,<9.0",
+    "pytest-django>=4.10,<5.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

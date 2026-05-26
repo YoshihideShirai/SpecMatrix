@@ -19,6 +19,7 @@ SpecMatrix uses the first-choice stack from the architecture draft:
 - Redis
 - Celery
 - Docker Compose
+- uv
 
 Start the development environment:
 
@@ -29,7 +30,7 @@ docker compose up --build
 Run database migrations:
 
 ```bash
-docker compose exec web python manage.py migrate
+docker compose exec web uv run python manage.py migrate
 ```
 
 Open the app:
@@ -41,7 +42,19 @@ Open the app:
 Create an admin user:
 
 ```bash
-docker compose exec web python manage.py createsuperuser
+docker compose exec web uv run python manage.py createsuperuser
+```
+
+Install or update Python dependencies locally:
+
+```bash
+uv sync
+```
+
+Run Django commands locally:
+
+```bash
+uv run python manage.py check
 ```
 
 ## VS Code Dev Container

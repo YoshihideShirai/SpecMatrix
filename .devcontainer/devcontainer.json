@@ -27,7 +27,7 @@
         "bierner.markdown-mermaid"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.defaultInterpreterPath": "/opt/venv/bin/python",
         "python.testing.pytestEnabled": true,
         "python.testing.unittestEnabled": false,
         "editor.formatOnSave": true,
@@ -35,5 +35,5 @@
       }
     }
   },
-  "postCreateCommand": "python manage.py migrate"
+  "postCreateCommand": "uv sync --frozen && uv run python manage.py migrate"
 }

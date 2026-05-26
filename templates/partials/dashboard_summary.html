@@ -1,0 +1,10 @@
+<section id="dashboard-summary" class="card">
+  <h2>リリースサマリー</h2>
+  <ul>
+    <li>対象リリース: {{ release_status.release }}</li>
+    <li>品質ゲート: {{ release_status.quality_gate }}</li>
+    <li>高リスク未解決指摘: {{ release_status.open_high_risk_findings }}</li>
+    <li>要求カバレッジ: {{ release_status.coverage }}%</li>
+  </ul>
+  <p class="muted">最終更新: {{ now|date:"Y-m-d H:i:s" }}</p>
+</section>

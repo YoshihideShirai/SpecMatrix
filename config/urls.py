@@ -1,13 +1,11 @@
 from django.contrib import admin
-from django.http import JsonResponse
 from django.urls import path
 
-
-def healthcheck(_request):
-    return JsonResponse({"status": "ok", "service": "specmatrix"})
-
+from .views import dashboard_summary, healthcheck, home
 
 urlpatterns = [
+    path("", home, name="home"),
     path("admin/", admin.site.urls),
     path("healthz/", healthcheck, name="healthcheck"),
+    path("dashboard/summary/", dashboard_summary, name="dashboard_summary"),
 ]
